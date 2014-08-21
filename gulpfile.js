@@ -3,7 +3,7 @@ var plugins = require('gulp-load-plugins')();
 
 gulp.task('bower', function() {
   return plugins.bower()
-    .pipe(gulp.dest('lib/'))
+    .pipe(gulp.dest('bower_components/'))
 });
 
 gulp.task('webserver', function() {
@@ -15,12 +15,12 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('wiredep', function () {
+gulp.task('wiredep', ['bower'], function () {
   var wiredep = require('wiredep').stream;
 
   gulp.src('app/styles/*.css')
     .pipe(wiredep({
-        directory: 'app/bower_components'
+        directory: 'bower_components'
     }))
     .pipe(gulp.dest('app/styles'));
 
@@ -31,4 +31,4 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('default', ['bower', 'wiredep', 'webserver']);
+gulp.task('default', ['wiredep', 'webserver']);

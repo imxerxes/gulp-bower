@@ -3,7 +3,7 @@ var plugins = require('gulp-load-plugins')();
 
 gulp.task('bower', function() {
   return plugins.bower()
-    .pipe(gulp.dest('bower_components/'))
+    .pipe(gulp.dest('app/bower_components/'))
 });
 
 gulp.task('webserver', function() {
@@ -20,13 +20,13 @@ gulp.task('wiredep', ['bower'], function () {
 
   gulp.src('app/styles/*.css')
     .pipe(wiredep({
-        directory: 'bower_components'
+        directory: 'app/bower_components'
     }))
     .pipe(gulp.dest('app/styles'));
 
   gulp.src('app/d3.html')
     .pipe(wiredep({
-      directory: 'bower_components'
+      directory: 'app/bower_components'
     }))
     .pipe(gulp.dest('app'));
 });

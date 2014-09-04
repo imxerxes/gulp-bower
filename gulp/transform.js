@@ -22,12 +22,13 @@ gulp.task('wiredep', ['bower'], function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('sass', function () {
+gulp.task('styles', function () {
   gulp.src('app/styles/*.scss')
     .pipe(plugins.watch(function(files) {
-    return files.pipe(plugins.sass())
-      .pipe(gulp.dest('app/styles'));
-  }));
+	    return files.pipe(plugins.sass())
+	      .pipe(gulp.dest('app/styles'));
+	  }))
+	  .pipe(plugins.autoprefixer('last 1 version'));
 });
 
 gulp.task('jshint', function () {
@@ -37,4 +38,4 @@ gulp.task('jshint', function () {
     .pipe(plugins.jshint.reporter('fail'));
 });
 
-gulp.task('transform', ['sass', 'jshint', 'wiredep']);
+gulp.task('transform', ['styles', 'jshint', 'wiredep']);

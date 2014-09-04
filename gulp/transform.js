@@ -24,10 +24,8 @@ gulp.task('wiredep', ['bower'], function () {
 
 gulp.task('styles', function () {
   gulp.src('app/styles/*.scss')
-    .pipe(plugins.watch(function(files) {
-	    return files.pipe(plugins.sass())
-	      .pipe(gulp.dest('app/styles'));
-	  }))
+    .pipe(plugins.sass())
+    .pipe(gulp.dest('app/styles'))
 	  .pipe(plugins.autoprefixer('last 1 version'));
 });
 

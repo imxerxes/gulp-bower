@@ -1,1 +1,3 @@
-home.js
+function home() {
+	'use strict';
+}

@@ -12,6 +12,4 @@ gulp.task('webserver', function() {
     }));
 });
 
-
-
-gulp.task('default', ['build', 'webserver']);
+gulp.task('default', ['transform', 'webserver']);

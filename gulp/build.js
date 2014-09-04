@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')(),
 	gulpif = require('gulp-if');
 
-gulp.task('build', ['transform'], function () {
+gulp.task('useref', function () {
   var assets = plugins.useref.assets();
 
   return gulp.src('app/*.html')
@@ -13,3 +13,11 @@ gulp.task('build', ['transform'], function () {
     .pipe(plugins.useref())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('copy-raw-assets', function(){
+  gulp
+  	.src('app/**/*.html')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['transform', 'useref', 'copy-raw-assets']);

@@ -15,7 +15,7 @@ gulp.task('wiredep', ['bower'], function () {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/index.html')
+  gulp.src('app/*.html')
     .pipe(wiredep({
       directory: 'app/bower_components'
     }))

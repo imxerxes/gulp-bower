@@ -12,8 +12,13 @@ gulp.task('webserver', ['transform'], function() {
     }));
 });
 
-gulp.task('watch', function() {
-  gulp.watch("app/scripts/{**,}/*.js", ["jshint"]);
+gulp.task('serve-dist', ['transform'], function() {
+  gulp.src('dist')
+    .pipe(plugins.webserver({
+      livereload: true,
+      open: true,
+      fallback: 'index.html'
+    }));
 });
 
 gulp.task('default', ['webserver', 'watch']);

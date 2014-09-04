@@ -12,7 +12,7 @@ gulp.task('webserver', ['transform'], function() {
     }));
 });
 
-gulp.task('serve-dist', ['transform'], function() {
+gulp.task('serve-dist', ['transform', 'build'], function() {
   gulp.src('dist')
     .pipe(plugins.webserver({
       livereload: true,

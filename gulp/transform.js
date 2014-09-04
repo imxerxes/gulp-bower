@@ -31,7 +31,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('jshint', function () {
-  return gulp.src(['app/scripts/**/*.js', 'gulp/*.js'])
+  return gulp.src(['app/scripts/{**,}/*.js', 'gulp/*.js'])
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'))
     .pipe(plugins.jshint.reporter('fail'));

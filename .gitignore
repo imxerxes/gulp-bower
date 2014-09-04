@@ -2,3 +2,4 @@
 /bower_components
 /lib
 .DS_Store
+app/styles/*.css

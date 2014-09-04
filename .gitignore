@@ -1,5 +1,6 @@
 /node_modules
 /bower_components
+/.bundle
 /lib
 .DS_Store
 app/styles/*.css
